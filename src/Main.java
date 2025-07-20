@@ -1,17 +1,33 @@
 public class Main {
     public static void main(String[] args) {
-        //Incidente ejemplo
-        SecurityIncident Incident1 = new SecurityIncident(
-                1001,
-                "Filtracion de informacion via correo electonico",
+        InternalIncident internal = new InternalIncident(
+                1,
+                "Acceso indebido a base de datos interna",
                 "Alta",
-                "Christian de la Rosa",
+                "Equipo TI",
                 true,
                 true,
-                true,
-                "Confidencial"
+                false,
+                "Restringido",
+                "Recursos Humanos"
         );
-        Incident1.displayIncident();
 
+        ExternalIncident external = new ExternalIncident(
+                2,
+                "Ataque de bruteforce desde IP extranjera",
+                "Crítica",
+                "SOC",
+                true,
+                true,
+                true,
+                "Confidencial",
+                "IP: 203.0.113.42"
+        );
+
+        System.out.println("=== INCIDENTE INTERNO ===");
+        internal.displayIncident();
+
+        System.out.println("\n=== INCIDENTE EXTERNO ===");
+        external.displayIncident();
     }
 }
